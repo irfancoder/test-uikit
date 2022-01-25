@@ -1,0 +1,80 @@
+.filter-group {
+    @apply flex items-center flex-row;
+
+    &-addon {
+        @apply py-2 px-4 border flex-none;
+        background-image: linear-gradient(#ffffff, #f3f5f7);
+
+        @include grouping();
+    }
+
+    .form-group {
+        @include grouping(".form-control");
+        @include grouping(".multiselect");
+
+        .form-control:focus {
+            @apply border #{!important};
+        }
+    }
+
+    .form-control {
+        @include grouping();
+
+        &:focus {
+            @apply border #{!important};
+        }
+    }
+
+    .dropdown {
+        @apply flex-none;
+
+        @include grouping("[data-toggle=dropdown]");
+    }
+
+    .multiselect {
+        @include grouping();
+    }
+
+    &.filter {
+        // @apply w-full;
+
+        .input-group-addon,
+        .multiselect,
+        .form-group > .form-control,
+        [data-toggle="dropdown"] {
+            @apply h-10 py-2 #{!important};
+        }
+
+        .form-group {
+            @apply mb-0;
+            height: inherit;
+        }
+
+        .multiselect {
+            @apply p-0 min-h-0 #{!important};
+
+            &__select {
+                @apply h-10;
+            }
+
+            &__input {
+                @apply top-0 absolute h-10 py-2 #{!important};
+            }
+
+            // &__single {
+            //     @apply leading-none align-text-bottom #{!important};
+            // }
+
+            &__tags {
+
+            }
+        }
+    }
+
+    &-addon,
+    .multiselect,
+    .form-group > .form-control,
+    [data-toggle="dropdown"] {
+        @apply h-10;
+    }
+}

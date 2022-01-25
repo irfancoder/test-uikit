@@ -1,0 +1,49 @@
+.nav-tabs {
+    @apply border-b border-solid mb-7 flex-nowrap overflow-x-auto overflow-y-hidden md:flex-wrap;
+    // scrolling-touch
+
+    .nav-item {
+        @apply font-medium flex-none md:flex-initial;
+    }
+
+    .nav-item + .nav-item {
+        @apply pl-8;
+    }
+
+    .nav-link {
+        @apply block py-4 text-black-500 cursor-pointer;
+
+        &.disabled {
+            @apply text-black-400 cursor-not-allowed;
+        }
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        @apply text-blue-500 relative;
+
+        &::after {
+            content: "";
+            @apply absolute w-full bg-blue-500 left-0 bottom-0;
+            height: 1px;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        @apply hidden;
+    }
+}
+
+.tab-content {
+    .tab-pane {
+        @apply hidden;
+
+        &.active {
+            @apply block;
+        }
+    }
+
+    .show {
+        @apply block;
+    }
+}

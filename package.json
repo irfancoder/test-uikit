@@ -1,26 +1,48 @@
 {
-  "name": "irfanvue-test",
+  "name": "runcloud-ui",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name irfanvue-test ./src/components/index.js"
+    "build": "vue-cli-service build --target lib --name runcloud-ui --dest dist ./index.js"
   },
-  "main": "dist/irfanvue-test.common.js",
+  "browser": true,
+  "main": "dist/runcloud-ui.common.js",
   "dependencies": {
+    "autoprefixer": "^9",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-html": "4.0.0",
+    "lodash": "^4.17.21",
+    "postcss": "^7",
+    "sass": "^1.49.0",
+    "sass-loader": "7.3.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "babel-eslint": "^8.2.6",
+    "chart.js": "2.9.2",
+    "chartjs-plugin-crosshair": "1.1.6",
+    "chartjs-plugin-datalabels": "0.7.0",
+    "eslint": "5.0.0",
+    "eslint-plugin-import": "2.20.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "eslint-plugin-vue": "6.2.2",
+    "glob": "^7.2.0",
+    "vue-content-loading": "1.6.0",
     "vue-template-compiler": "^2.6.11"
   },
+  "files": [
+    "dist"
+  ],
   "eslintConfig": {
     "root": true,
     "env": {

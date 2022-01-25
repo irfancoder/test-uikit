@@ -1,0 +1,140 @@
+.sidebar {
+    @apply hidden fixed md:flex md:mt-0;
+
+    .sidebar-main,
+    .sidebar-child {
+        @apply h-screen w-48 border-r px-7 lg:w-64;
+
+        // @screen xxl {
+        //     @apply w-300;
+        // }
+
+        ul {
+            @apply inline-block;
+
+            li {
+                @apply relative transition-all delay-100;
+
+                i {
+                    @apply text-misc-100 text-xl mr-4;
+
+                    &::before {
+                        @apply font-semibold;
+                    }
+                }
+
+                &.active,
+                &:hover,
+                &:focus {
+                    a,
+                    i {
+                        @apply text-blue-500;
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar-main {
+        @apply py-4;
+
+        &.icon-only {
+            @apply w-16 px-0 text-center;
+
+            li > a > span {
+                @apply hidden;
+            }
+
+            i {
+                @apply mr-0;
+            }
+        }
+
+        ul {
+            li {
+                @apply py-2;
+
+                &.active::before {
+                    content: "";
+                    @apply absolute left-0 top-0 bottom-0 -ml-7 h-7 my-auto bg-blue-500 rounded-r-md;
+                    width: 3px;
+                }
+
+                > a {
+                    @apply text-black-500 font-normal;
+                    line-height: 1.4;
+
+                    > span {
+                        @apply whitespace-nowrap;
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar-child {
+        @apply py-4 overflow-y-scroll;
+
+        > ul {
+            @apply w-full;
+
+            li {
+                @apply py-2 leading-tight;
+
+                > a {
+                    @apply text-black-500 font-normal;
+                }
+
+                &.menu-header {
+                    @apply text-misc-200;
+
+                    &:not(:first-of-type) {
+                        @apply mt-4;
+                    }
+                }
+            }
+        }
+    }
+
+    &.sidebar-on-mobile {
+        @apply bg-misc-500 flex z-10;
+
+        .sidebar-main {
+            @apply w-80;
+
+            &.icon-only {
+                @apply w-16;
+            }
+        }
+
+        .sidebar-child {
+            @apply w-64;
+        }
+
+        .sidebar-backdrop {
+            @apply #{$default-overlay} fixed right-0 h-full top-0 text-center;
+            padding-top: 14px;
+
+            i::before {
+                @apply font-semibold;
+            }
+        }
+
+        .sidebar-header {
+            @apply absolute w-full -mt-16 border-b border-r bg-white top-0 h-16 px-4 left-0;
+        }
+    }
+}
+
+.sidebar-right {
+    background-color: #eef1f6;
+}
+
+.content-expand {
+    @apply md:ml-16 lg:ml-16 flex-1 ease-in;
+    transition: margin-left 300ms;
+}
+
+.content-shrink {
+    @apply md:ml-48 lg:ml-64 transition-all duration-300 ease-out;
+}

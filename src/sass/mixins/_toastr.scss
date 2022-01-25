@@ -1,0 +1,8 @@
+@mixin alert-variant($color, $icon) {
+    @apply bg-#{$color}-50 border-#{$color}-500;
+
+    &::before {
+        content: $icon;
+        @apply bg-#{$color}-300 text-#{$color}-500;
+    }
+}

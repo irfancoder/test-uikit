@@ -1,0 +1,49 @@
+.breadcrumb {
+    @apply flex md:flex-wrap list-none;
+    
+    // .breadcrumb-item:last-child > a {
+    //     @apply cursor-default pointer-events-none text-misc-700 text-opacity-70;
+    // }
+}
+
+.breadcrumb-item {
+    > a {
+        @apply text-misc-700;
+    }
+
+    &.back-link > a {
+        @apply text-misc-200;
+
+        i {
+            @apply pr-3;
+
+            &::before {
+                @apply font-semibold;
+            }
+        }
+
+        &:hover {
+            @apply text-misc-300;
+        }
+    }
+
+    + .breadcrumb-item {
+        @apply pl-4;
+
+        &::before {
+            content: "\f22a";
+            font-family: $font-family-icon;
+            @apply text-black-400 inline-block pr-4 text-xs font-semibold;
+        }
+    }
+
+    + .breadcrumb-item:hover::before {
+        @apply no-underline;
+    }
+
+    
+
+    &.active {
+        @apply text-black-600;
+    }
+}

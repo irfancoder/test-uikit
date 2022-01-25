@@ -1,0 +1,13 @@
+@mixin switch-variant($color) {
+    input {
+        &:checked {
+            & + .slider {
+                @apply bg-#{$color}-500;
+
+                &:before {
+                    @apply text-#{$color}-500;
+                }
+            }
+        }
+    }
+}

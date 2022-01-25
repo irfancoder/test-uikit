@@ -1,0 +1,152 @@
+.vue-slider-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.vue-slider-rail {
+    @apply rounded-lg;
+    background-color: #cfd6e4;
+}
+
+.vue-slider-process {
+    @apply rounded-lg;
+    background-color: #026aff;
+}
+
+.vue-slider-mark {
+    @apply z-10;
+
+    &:first-child {
+        .vue-slider-mark-step {
+            @apply hidden;
+        }
+
+        .vue-slider-mark-label {
+            -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+        }
+    }
+    &:last-child {
+        .vue-slider-mark-step {
+            @apply hidden;
+        }
+        
+        .vue-slider-mark-label {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.vue-slider-mark-step {
+    @apply w-full h-full bg-black-500 rounded-none opacity-50;
+}
+
+.vue-slider-mark-label {
+    @apply whitespace-nowrap;
+    @apply mt-4 #{!important};
+}
+
+.vue-slider-dot-handle {
+    @apply cursor-pointer w-7 h-7 rounded-full bg-white box-border;
+    transform: translate(-5px, -5px);
+    box-shadow: 0 2px 4px 0 rgba(5, 6, 7, 0.14);
+
+    &::after {
+        @apply absolute;
+        content: "\f21f";
+        color: #a5afc2;
+        font-family: $font-family-icon;
+        font-size: 11px;
+        transform: translate(7px, 4px);
+    }
+
+    &-focus {
+        box-shadow: 0px 0px 1px 2px rgba(52, 152, 219, 0.4);
+
+        &::after {
+            color: #026aff;
+        }
+    }
+
+    &-disabled {
+        @apply cursor-not-allowed;
+        background-color: #ccc;
+    }
+}
+
+.vue-slider-dot-tooltip-inner {
+    @apply whitespace-nowrap py-0.5 px-1 min-w-7 text-center text-white rounded box-content;
+    border-color: #026aff;
+    background-color: #026aff;
+
+    &::after {
+        content: none;
+    }
+}
+
+// tooltip
+
+// .vue-slider-dot-tooltip-inner-top {
+//     &::after {
+//         top: 100%;
+//         left: 50%;
+//         transform: translate(-50%, 0);
+//         height: 0;
+//         width: 0;
+//         border-color: transparent;
+//         border-style: solid;
+//         border-width: 5px;
+//         border-top-color: inherit;
+//     }
+// }
+
+// .vue-slider-dot-tooltip-inner-bottom {
+//     &::after {
+//         bottom: 100%;
+//         left: 50%;
+//         transform: translate(-50%, 0);
+//         height: 0;
+//         width: 0;
+//         border-color: transparent;
+//         border-style: solid;
+//         border-width: 5px;
+//         border-bottom-color: inherit;
+//     }
+// }
+
+// .vue-slider-dot-tooltip-inner-left {
+//     &::after {
+//         left: 100%;
+//         top: 50%;
+//         transform: translate(0, -50%);
+//         height: 0;
+//         width: 0;
+//         border-color: transparent;
+//         border-style: solid;
+//         border-width: 5px;
+//         border-left-color: inherit;
+//     }
+// }
+
+// .vue-slider-dot-tooltip-inner-right {
+//     &::after {
+//         right: 100%;
+//         top: 50%;
+//         transform: translate(0, -50%);
+//         height: 0;
+//         width: 0;
+//         border-color: transparent;
+//         border-style: solid;
+//         border-width: 5px;
+//         border-right-color: inherit;
+//     }
+// }
+
+.vue-slider-dot-tooltip-wrapper {
+    @apply opacity-0 transition-all duration-300;
+}
+
+.vue-slider-dot-tooltip-wrapper-show {
+    @apply opacity-100;
+}

@@ -1,0 +1,26 @@
+ul {
+    &.list-number {
+        @apply ml-12;
+        counter-reset: item;
+
+        li {
+            counter-increment: item;
+
+            &:before {
+                @apply bg-gray-300 absolute font-semibold text-center -ml-12 text-base text-misc-700 rounded-full w-8 h-8;
+                line-height: 32px;
+                content: counter(item);
+            }
+        }
+    }
+
+    &.list-star {
+        li {
+            &::before {
+                content: '\f27e';
+                @apply pr-3 text-yellow-500 text-lg;
+                font-family: runcloudnicon;
+            }
+        }
+    }
+}

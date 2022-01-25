@@ -1,0 +1,36 @@
+@mixin grouping($element: "") {
+    @if $element {
+        &:not(:first-child):not(:last-child) #{$element} {
+            @apply rounded-none border-r border-l-0;
+        }
+
+        &:first-child #{$element} {
+            @apply rounded rounded-r-none border-r border-l;
+        }
+
+        &:last-child #{$element} {
+            @apply rounded rounded-l-none border-l-0;
+        }
+
+        &:only-child #{$element} {
+            @apply border rounded;
+        }
+    }
+    else {
+        &:not(:first-child):not(:last-child) {
+            @apply rounded-none border-r border-l;
+        }
+
+        &:first-child {
+            @apply rounded rounded-r-none border-r;
+        }
+
+        &:last-child {
+            @apply rounded rounded-l-none border-l-0;
+        }
+
+        &:only-child {
+            @apply border rounded;
+        }
+    }
+}

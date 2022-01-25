@@ -1,0 +1,110 @@
+.toast {
+    @apply relative pointer-events-auto overflow-hidden m-4 rounded-b w-100 shadow p-6 pl-18 border-t-2 min-h-18;
+
+    &::before {
+        @apply absolute flex-shrink-0 top-0 bottom-0 left-0 w-8 h-8 rounded-full text-center font-semibold text-lg mt-6 ml-6 font-icon;
+        line-height: 32px;
+    }
+}
+
+#toast-container {
+    @apply fixed z-999999 pointer-events-none;
+
+    &.toast-top-center > div,
+    &.toast-bottom-center > div {
+        @apply w-100 mx-auto;
+    }
+
+    &.toast-top-full-width > div,
+    &.toast-bottom-full-width > div {
+        @apply w-11/12 mx-auto;
+    }
+}
+
+.toast-title {
+    @apply font-semibold flex-none;
+}
+
+.toast-message {
+    @apply break-words;
+
+    a,
+    label {
+        @apply text-black-500 border-b border-dashed border-black-400;
+    }
+}
+
+.toast-close-button {
+    @apply absolute right-0 top-0 mt-6 mr-6;
+    font-size: 0;
+
+    &::before {
+        content: '\f222';
+        @apply text-sm text-misc-100 font-icon font-semibold;
+    }
+}
+
+/*Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`.*/
+button.toast-close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+//
+// Toast position
+//
+
+.toast-top-center,
+.toast-top-full-width {
+    @apply top-0 right-0 w-full;
+}
+
+.toast-bottom-center,
+.toast-bottom-full-width {
+    @apply bottom-0 right-0 w-full;
+}
+
+.toast-top-left {
+    @apply top-4 left-4;
+}
+
+.toast-top-right {
+    @apply top-16 right-4;
+}
+
+.toast-bottom-right {
+    @apply bottom-4 right-4;
+}
+
+.toast-bottom-left {
+    @apply bottom-4 left-4;
+}
+
+//
+// Alternate style
+//
+
+.toast-info {
+    @include alert-variant("blue", "\f243");
+}
+
+.toast-error {
+    @include alert-variant("red", "\f235");
+}
+
+.toast-warning {
+    @include alert-variant("yellow", "\f242");
+}
+
+.toast-success {
+    @include alert-variant("green", "\f243");
+}
+
+.toast-progress {
+    @apply absolute left-0 bottom-0 bg-white h-1 opacity-40 w-full;
+}

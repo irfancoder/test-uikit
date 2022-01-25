@@ -1,0 +1,54 @@
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+    @apply font-mono #{!important};
+}
+
+// Inline code
+code {
+    @apply break-all;
+    // font-size: $code-font-size;
+    // color: $code-color;
+
+    // Streamline the style when inside anchors to avoid broken underline and more
+    a > & {
+        color: inherit;
+    }
+}
+
+.code-inline {
+    @apply bg-gray-300 px-1 py-0.5 rounded inline;
+}
+
+// User input typically entered via keyboard
+kbd {
+    @apply text-white bg-misc-300 rounded py-1 px-2 text-sm font-medium text-opacity-90 leading-none;
+
+    kbd {
+        @apply p-0;
+    }
+}
+
+// Blocks of code
+pre {
+    @apply block border rounded py-2 px-4 mb-4;
+    @apply bg-gray-100 #{!important};
+
+    // Account for some code outputs that place code tags in pre tags
+    code {
+        @apply break-all;
+        font-size: inherit;
+        color: inherit;
+    }
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+    @apply overflow-y-scroll max-h-120 whitespace-pre-wrap;
+}
+
+.hljs {
+    @apply bg-transparent p-0 #{!important};
+}

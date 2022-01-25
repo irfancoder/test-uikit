@@ -1,0 +1,32 @@
+// Base class
+//
+// Requires one of the contextual, color modifier classes for `color` and
+// `background-color`.
+
+.badge {
+    @apply inline-block py-1 px-3 text-sm font-semibold text-center whitespace-nowrap align-baseline rounded-full;
+    line-height: 16px;
+}
+
+// Colors
+//
+// Contextual variations (linked badges get darker on :hover).
+.badge-default {
+    @apply bg-black-100 text-black-500;
+}
+
+.badge-primary {
+    @include badge-variant("blue");
+}
+
+.badge-success {
+    @include badge-variant("green");
+}
+
+.badge-danger {
+    @include badge-variant("red");
+}
+
+.badge-warning {
+    @include badge-variant("yellow");
+}

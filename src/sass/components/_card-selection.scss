@@ -1,0 +1,30 @@
+.card-selection {
+    @apply relative;
+
+    > label {
+        @apply box-border relative flex items-center w-full min-h-full px-4 py-3 transition-all duration-100 border rounded cursor-pointer bg-gray-100;
+
+        svg,
+        img {
+            @apply w-7 h-7 mr-3-5;
+        }
+
+        &.disabled,
+        [disabled="disabled"] {
+            @apply opacity-50 cursor-not-allowed #{!important};
+        }
+    }
+
+    &.active,
+    &:hover {
+        > label:not(.disabled),
+        hr {
+            @apply border-blue-500 bg-blue-50;
+        }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        @apply invisible hidden;
+    }
+}

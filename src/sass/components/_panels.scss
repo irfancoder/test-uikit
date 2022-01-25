@@ -1,0 +1,52 @@
+.panel {
+    @apply mb-8 relative;
+
+    &.panel-default {
+        @apply bg-white border rounded-md;
+    }
+
+    &-table {
+        @apply bg-white border border-l-0 border-r-0 border-solid py-0 -mt-0.5 #{!important};
+
+        &:last-child {
+            @apply rounded-b-md;
+        }
+    }
+}
+
+.panel-heading {
+    @apply py-4 mx-7 relative;
+
+    &> :not(template)+ :not(template) {
+        @apply mt-1;
+    }
+
+    &:not([aria-expanded="false"]) {
+        @apply border-b border-solid;
+    }
+
+    h4 {
+        @apply font-semibold;
+    }
+
+    p {
+        @apply text-misc-700;
+    }
+
+    >.nav-tabs {
+        @apply border-0 mb-0;
+    }
+}
+
+.panel-body {
+    @apply py-7 px-7;
+}
+
+.panel-danger {
+    @apply border-red-500 rounded-b-md;
+
+}
+
+.panel-footer {
+    @apply bg-white py-4 px-7 border-t rounded-b-md;
+}

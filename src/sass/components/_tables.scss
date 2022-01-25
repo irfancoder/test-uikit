@@ -1,0 +1,290 @@
+.table {
+    @apply w-full max-w-full relative;
+
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            @apply border-b text-left;
+
+            > th,
+            > td {
+                @apply py-4 px-2 whitespace-nowrap md:whitespace-normal;
+
+                &:not(:first-child):not(:last-child) {
+                    @apply px-8 md:px-2;
+                }
+
+                &:last-child:not(:only-child) {
+                    @apply text-right pr-7;
+                }
+
+                i + span {
+                    @apply ml-3;
+                }
+
+                > .checkbox {
+                    label {
+                        @apply pl-6;
+                    }
+                }
+            }
+
+            > th {
+                @apply font-medium text-misc-200;
+            }
+
+            & > td:first-child,
+            > th:first-child {
+                @apply pl-7;
+            }
+
+            & > td:last-child {
+                @apply pr-7;
+
+                > div.dropdown {
+                    @apply opacity-0;
+                }
+            }
+
+            &:hover {
+                & > td:last-child:not(:only-child) {
+                    > div.dropdown {
+                        @apply opacity-100;
+                    }
+                }
+            }
+        }
+    }
+
+    > thead {
+        @apply bg-gray-100;
+    }
+
+    > tbody {
+        > tr:last-child {
+            @apply border-0;
+        }
+
+        .rc-tb-icon {
+            @apply text-lg mr-3 text-misc-100;
+            line-height: 14px;
+
+            &::before {
+                @apply font-semibold;
+            }
+        }
+
+        .with-image {
+            @apply flex items-center;
+
+            > img,
+            > i,
+            > svg {
+                @apply mr-4;
+            }
+
+            .title {
+                @apply font-medium;
+            }
+
+            .subtitle {
+                @apply text-gray-700;
+            }
+        }
+
+        .action {
+            @apply flex justify-around items-center;
+        }
+
+        .empty {
+            @apply text-black-500;
+
+            a {
+                @apply text-blue-800;
+            }
+
+            &:hover {
+                background-color: unset;
+            }
+        }
+
+        .scrollable-text {
+            @apply overflow-auto w-full max-w-2xs lg:max-w-3xs xl:max-w-2xs 2xl:max-w-xl whitespace-nowrap;
+            @extend .no-scrollbar;
+        }
+    }
+}
+
+.table-summary {
+    @apply w-full max-w-full relative;
+
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            @apply text-left;
+
+            > th,
+            > td {
+                @apply py-2 px-2 whitespace-nowrap md:whitespace-normal;
+
+                &:not(:first-child):not(:last-child) {
+                    @apply px-8 md:px-2;
+                }
+
+                &:last-child:not(:only-child) {
+                    @apply text-right;
+                }
+
+                i + span {
+                    @apply ml-3;
+                }
+
+                > .checkbox {
+                    label {
+                        @apply pl-6;
+                    }
+                }
+            }
+
+            > th {
+                @apply font-medium text-misc-200 pt-0;
+            }
+        }
+    }
+
+    > tbody {
+        > tr:last-child {
+            @apply border-0;
+        }
+
+        .rc-tb-icon {
+            @apply text-lg mr-3 text-misc-100;
+            line-height: 14px;
+
+            &::before {
+                @apply font-semibold;
+            }
+        }
+
+        .with-image {
+            @apply flex items-center;
+
+            > img,
+            > i,
+            > svg {
+                @apply mr-4;
+            }
+
+            .title {
+                @apply font-medium;
+            }
+
+            .subtitle {
+                @apply text-gray-700;
+            }
+        }
+
+        .action {
+            @apply flex justify-around items-center;
+        }
+
+        .empty {
+            @apply text-black-500;
+
+            a {
+                @apply text-blue-800;
+            }
+
+            &:hover {
+                background-color: unset;
+            }
+        }
+    }
+}
+
+@include table-row-variant("selected", theme("colors.blue.100"));
+
+.table-hover {
+    > tbody > tr:hover {
+        @apply bg-blue-50;
+    }
+}
+
+.table-responsive {
+    @apply overflow-scroll relative lg:overflow-visible pb-4 pt-4;
+
+    .table-swipe-notice {
+        @apply bg-misc-500 bg-opacity-90 border rounded absolute top-0 flex items-center justify-center flex-col sm:hidden;
+
+        i {
+            @apply mb-2 text-6xl text-misc-100;
+        }
+
+        p {
+            @apply text-black-500 font-medium;
+        }
+    }
+
+    + .panel-footer {
+        @apply -mt-4;
+    }
+}
+
+.table-stackable {
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            @apply border-b flex flex-col md:table-row;
+
+            > th,
+            > td {
+                @apply md:py-7 whitespace-normal w-full md:w-auto #{!important};
+
+                &:last-child:not(:only-child) {
+                    @apply text-left md:text-right;
+                }
+            }
+
+            td + td {
+                @apply pt-0;
+            }
+
+            & > td:first-child,
+            > th:first-child {
+                @apply pl-0;
+            }
+
+            & > td:last-child {
+                @apply pr-0;
+            }
+        }
+    }
+}
+
+.table-print {
+    @media print {
+        table {
+            page-break-after: auto;
+        }
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+        td {
+            > p {
+                @apply max-w-xs break-normal whitespace-pre-wrap;
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+        }
+        thead {
+            display: table-header-group;
+        }
+        tfoot {
+            display: table-footer-group;
+        }
+    }
+}

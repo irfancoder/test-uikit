@@ -1,0 +1,67 @@
+.navbar {
+    @apply h-16 w-full flex fixed z-10 px-7 py-2 justify-between items-center text-white flex-wrap inset-x-0;
+
+    &.navbar-default {
+        @apply bg-blue-900;
+    }
+
+    &-menu {
+        @apply flex items-center justify-end;
+    }
+
+    .rc-icon-navbar {
+        @apply text-2xl text-blue-100;
+
+        &:before {
+            @apply opacity-75;
+        }
+    }
+}
+
+.navbar-nav {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    .nav-link {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        float: none;
+    }
+}
+
+.navbar-right {
+    float: right !important;
+}
+
+.navbar-brand {
+    display: inline-block;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-link {
+    display: block;
+
+    &.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+.navbar-mobile {
+    @apply bg-blue-900;
+}

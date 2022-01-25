@@ -1,0 +1,51 @@
+.label {
+    padding: 4px 6px;
+    font-weight: 600;
+    font-size: 12px;
+    vertical-align: middle;
+    line-height: 12px;
+
+    i {
+        margin-right: 2px;
+        font-size: 14px;
+        margin-top: -2px;
+
+        &::before {
+            font-weight: 600;
+        }
+    }
+}
+
+.label-default {
+    @include label-variant($black, $default-color);
+}
+
+.label-primary {
+    @include label-variant(#eceffd, $primary-color);
+}
+
+.label-success {
+    @include label-variant(#eafaf1, $success-color);
+}
+
+.label-info {
+    @include label-variant(#d7e4f9, $info-color);
+}
+
+.label-warning {
+    @include label-variant($black, $warning-color);
+}
+
+.label-danger {
+    @include label-variant(#fae6e7, $danger-color);
+}
+
+.label-dark {
+    @include label-variant($catskill-white, $base-color);
+}
+
+.label-black-squeeze {
+    @include label-variant($default-color, $black-squeeze);
+
+    color: $blue-casper;
+}

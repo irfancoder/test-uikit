@@ -1,0 +1,183 @@
+//
+// Checkboxes
+// --------------------------------------------------
+
+$font-family-icon: runcloudnicon !default;
+$fa-var-check: "\f239" !default;
+$check-icon: $fa-var-check !default;
+
+.checkbox-inline,
+.radio-inline {
+    @apply flex items-center;
+
+    .radio {
+        @apply mb-0;
+    }
+
+    // space-x-6
+    & > :not(template) + :not(template) {
+        @apply ml-10;
+    }
+}
+
+.checkbox {
+    label {
+        @apply flex align-middle relative pl-4 min-h-7 cursor-pointer ml-6;
+
+        &::before {
+            content: "";
+            @apply inline-block absolute left-0 -ml-6 bg-white #{$checkbox-border-radius} #{$checkbox-height} #{$checkbox-width} #{$checkbox-border};
+            margin-top: 2px;
+
+            // @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out);
+        }
+
+        &::after {
+            @apply inline-block absolute top-0 left-0 mt-1 text-black-700 #{$checkbox-height} #{$checkbox-width};
+            margin-left: -13px;
+        }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        @apply opacity-0 absolute;
+        z-index: 1;
+
+        &:checked + label::after {
+            content: $check-icon;
+            font-family: $font-family-icon;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        // &:indeterminate + label::after {
+        //     content: "";
+        //     @apply block w-2 rounded -ml-3-5;
+        //     @apply bg-blue-500 #{!important};
+        //     height: 1.5px;
+        //     margin-top: -11px !important;
+        // }
+
+        &:disabled + label {
+            @apply opacity-75 cursor-not-allowed;
+
+            &::before {
+                @apply bg-black-200;
+            }
+        }
+    }
+
+    &.checkbox-circle label::before {
+        @apply rounded-full;
+    }
+}
+
+.form-check-inline + .form-check-inline {
+    @apply ml-8;
+}
+
+@include checkbox-variant(".checkbox-primary", #026aff);
+@include checkbox-variant-indeterminate(".checkbox-primary", #026aff);
+
+//
+// Radios
+// --------------------------------------------------
+
+.radio {
+    @apply my-3;
+
+    &:last-child {
+        @apply mb-0;
+    }
+
+    label {
+        @apply inline-block align-middle relative pl-4 min-h-7 cursor-pointer;
+
+        &::before {
+            content: "";
+            @apply inline-block absolute left-0 -ml-6 bg-white rounded-full #{$checkbox-height} #{$checkbox-width} #{$checkbox-border};
+            transition: border 0.15s ease-in-out;
+        }
+
+        &::after {
+            content: " ";
+            @apply inline-block absolute w-3 h-3 -ml-6 bg-white rounded-full left-1 top-1;
+            transform: scale(0);
+
+            transition: 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            //curve - http://cubic-bezier.com/#.8,-0.33,.2,1.33
+        }
+    }
+
+    input[type="radio"] {
+        @apply opacity-0;
+        z-index: 1;
+
+        // &:focus + label::before {
+        //     @include tab-focus;
+        // }
+
+        &:checked + label::after {
+            transform: scale(1);
+        }
+
+        &:disabled + label {
+            @apply opacity-75 cursor-not-allowed;
+
+            &::before {
+                @apply bg-black-200 cursor-not-allowed;
+            }
+        }
+    }
+
+    &.radio-inline {
+        @apply mt-0;
+    }
+}
+
+@include radio-variant(".radio-primary", #026aff);
+
+input[type="checkbox"],
+input[type="radio"] {
+    &.styled:checked + label:after {
+        content: $check-icon;
+        font-family: $font-family-icon;
+        @apply text-sm;
+        margin-left: -14px;
+        margin-top: 3px;
+    }
+
+    .styled:checked + label {
+        &::before {
+            @apply text-white;
+        }
+
+        &::after {
+            @apply text-white;
+        }
+    }
+}
+
+.radio,
+.checkbox {
+    &:hover {
+        label::before {
+            @apply border-blue-500;
+        }
+    }
+}
+
+.checkbox-sm {
+    label {
+        &::before {
+            @apply h-4 w-4;
+            border-radius: 3px;
+        }
+
+        &::after {
+            @apply h-4 w-4;
+            margin-top: 2px;
+            margin-left: -15px;
+        }
+    }
+}

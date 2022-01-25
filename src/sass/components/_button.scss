@@ -1,0 +1,93 @@
+.btn {
+    @apply border py-3 px-4 rounded font-medium text-base justify-center md:justify-start leading-none cursor-pointer text-center box-border outline-none transition-all duration-100 h-10 whitespace-nowrap inline-block;
+
+    &-default {
+        @include button-variant(
+            text-black-500,
+            border-gray-500,
+            "gray-200",
+            "white",
+            "gray"
+        );
+    }
+
+    &-primary {
+        @include button-variant(
+            text-white,
+            border-blue-700,
+            "blue-600",
+            "blue-500",
+            "blue"
+        );
+    }
+
+    &-success {
+        @include button-variant(
+            text-white,
+            border-green-700,
+            "green-600",
+            "green-500",
+            "green"
+        );
+    }
+
+    &-warning {
+        @include button-variant(
+            text-white,
+            border-yellow-700,
+            "yellow-600",
+            "yellow-500",
+            "yellow"
+        );
+    }
+
+    &-danger {
+        @include button-variant(
+            text-white,
+            border-red-700,
+            "red-600",
+            "red-500",
+            "red"
+        );
+    }
+
+    &-text {
+        @apply text-black-500 border-transparent bg-transparent px-0;
+
+        &:hover {
+            @apply outline-none text-blue-500;
+        }
+
+        &:active {
+            @apply outline-none;
+        }
+    }
+}
+
+.btn-block {
+    @apply w-full;
+}
+
+.btn-with-checkbox {
+    @apply pl-2 py-1;
+
+    > .checkbox {
+        label {
+            @apply pl-2 h-auto min-h-0;
+            line-height: 20px;
+
+            &::after {
+                margin-top: 1px;
+                @apply -ml-6.5;
+            }
+        }
+
+        input[type="checkbox"]:indeterminate + label:after {
+            @apply -mt-3;
+        }
+
+        input[type="checkbox"]:indeterminate {
+            @apply bg-blue-500;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+.dropdown {
+    @apply relative inline-block;
+
+    &-toggle {
+        @apply inline-flex justify-center w-full rounded-md text-sm leading-5 font-medium text-black-700 transition ease-in-out duration-150 cursor-pointer;
+
+        &:hover {
+            @apply text-black-500;
+        }
+
+        &:focus {
+            @apply outline-none border-blue-300;
+        }
+
+        &:active {
+            @apply bg-black-500 text-black-800;
+        }
+
+        .rc-gl-caret {
+            @apply ml-2 text-misc-200 font-icon text-xxs align-bottom;
+        }
+    }
+}
+
+.dropdown-hover {
+    &::before {
+        content: "";
+        @apply absolute w-full h-4 bottom-0 -mb-2;
+    }
+
+    &:hover .dropdown-menu {
+        @apply flex max-w-xs w-max transition-all ease-linear duration-200;
+    }
+}
+
+.dropdown-menu {
+    @apply hidden origin-top-right absolute right-0 mt-1 w-min rounded-md shadow border border-solid bg-white z-50 px-2 py-3;
+
+    &-left {
+        @extend .dropdown-menu;
+        @apply origin-top-left left-0 right-full;
+    }
+
+    &.show {
+        @apply block;
+    }
+
+    &.show.flex-div {
+        @apply flex;
+    }
+
+    > li {
+        @apply transition-all delay-150;
+
+
+        > a, .btn {
+            @apply justify-start #{!important};
+            
+            > span {
+                @apply whitespace-nowrap;
+            }
+        }
+}
+
+    hr {
+        @apply m-2;
+    }
+}

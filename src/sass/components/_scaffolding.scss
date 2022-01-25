@@ -1,0 +1,63 @@
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    height: 100%;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $catskill-white;
+    font-family: $font-stack;
+    height: 100%;
+    color: $black;
+}
+
+[v-cloak] > * {
+    display: none;
+}
+
+div {
+    &.padding-bottom {
+        padding-bottom: 100px;
+    }
+}
+
+.margin-back-menu {
+    margin-bottom: 1.5em !important;
+
+    @include media-breakpoint-down(md) {
+        color: $white !important;
+        font-weight: 400 !important;
+
+        &::before {
+            content: none !important;
+        }
+    }
+}
+
+.header-section {
+    margin-bottom: 24px;
+
+    p {
+        margin-bottom: 4px;
+        color: #4e5a65;
+    }
+
+    h4 {
+        margin-top: unset;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+
+._hj_feedback_container {
+    @media print {
+        display: none !important;
+    }
+}

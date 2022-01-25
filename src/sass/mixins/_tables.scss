@@ -1,0 +1,31 @@
+@mixin table-row-variant($state, $background, $border: null) {
+    .table-#{$state} {
+        &,
+        > th,
+        > td {
+            background-color: $background;
+        }
+
+        @if $border != null {
+            th,
+            td,
+            thead th,
+            tbody + tbody {
+                border-color: $border;
+            }
+        }
+    }
+
+    .table-hover {
+        .table-#{$state} {
+            &:hover {
+                background-color: $background;
+
+                > td,
+                > th {
+                    background-color: $background;
+                }
+            }
+        }
+    }
+}

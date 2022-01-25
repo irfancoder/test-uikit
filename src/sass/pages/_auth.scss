@@ -1,0 +1,21 @@
+.rc-auth {
+    img {
+        @apply mb-4 w-16 h-auto inline;
+    }
+
+    h2 {
+        @apply text-3xl mb-2 font-bold;
+
+        + p {
+            @apply mb-8 text-misc-300;
+        }
+    }
+
+    > ul {
+        @apply mt-6;
+
+        li {
+            @apply py-1;
+        }
+    }
+}

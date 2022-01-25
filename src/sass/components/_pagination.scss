@@ -1,0 +1,32 @@
+.pagination {
+    @apply flex;
+}
+
+.page-link {
+    @apply relative block py-2 px-2 text-misc-700 font-medium;
+
+    &:hover {
+        @apply text-blue-500;
+    }
+
+    // &:focus {
+    //     z-index: 2;
+    //     outline: 0;
+    //     box-shadow: $pagination-focus-box-shadow;
+    // }
+
+    // Opinionated: add "hand" cursor to non-disabled .page-link elements
+    &:not(:disabled):not(.disabled) {
+        @apply cursor-pointer;
+    }
+}
+
+.page-item {
+    &.active .page-link {
+        @apply z-1 text-blue-500;
+    }
+
+    &.disabled .page-link {
+        @apply opacity-75 cursor-not-allowed;
+    }
+}

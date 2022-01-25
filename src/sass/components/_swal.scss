@@ -1,0 +1,80 @@
+@import "button";
+@import "forms";
+@import "alerts";
+@import "modals";
+
+.rc-swal {
+    .swal2-icon {
+        @apply hidden;
+    }
+
+    .swal2-header {
+        @apply px-0 py-4 m-0 flex-row items-start border-b;
+
+        .swal2-title {
+            @apply font-semibold text-black-900 text-lg m-0 p-0 #{!important};
+        }
+    }
+
+    .swal2-popup {
+        @apply p-7 pt-0 rounded bg-white w-120;
+        @apply mt-28 #{!important};
+    }
+
+    .swal2-content {
+        @apply pt-7 text-base p-0 m-0 text-left leading-relaxed;
+
+        p {
+            @apply break-words text-misc-700 leading-relaxed;
+        }
+
+        .swal2-html-container {
+            @apply pb-4;
+        }
+    }
+
+    .swal2-input {
+        @extend .form-control;
+        @apply m-0 shadow-none;
+    }
+
+    .swal2-actions {
+        @apply flex flex-row-reverse justify-start px-0 pt-4 border-t;
+    }
+
+    .swal2-styled.swal2-confirm {
+        @extend .btn;
+    }
+
+    .swal2-validation-message {
+        @apply bg-transparent text-red-500 m-0 p-0 justify-start text-base;
+    }
+
+    .swal2-validation-message::before {
+        @apply bg-red-500 text-xxs;
+    }
+
+    .swal2-confirm {
+        @extend .btn-primary;
+        @apply bg-blue-500 border border-solid border-black-300 border-opacity-40 #{!important};
+    }
+
+    .swal2-delete {
+        @extend .btn-danger;
+        @apply bg-red-500 border border-solid border-black-300 border-opacity-40 #{!important};
+    }
+
+    .swal2-styled.swal2-cancel {
+        @extend .btn;
+        @extend .btn-default;
+        @apply bg-transparent border border-solid border-black-300 border-opacity-40;
+    }
+
+    .swal2-close {
+        @apply mr-3 mt-2;
+
+        i {
+            @apply text-sm;
+        }
+    }
+}

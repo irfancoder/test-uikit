@@ -1,0 +1,13 @@
+.announcekit-widget {
+    .announcekit-widget-badge {
+        @apply absolute w-4 h-4 top-2 opacity-100 #{!important};
+    }
+
+    .announcekit-widget-badge circle {
+        fill: rgba(230, 29, 29, 1) !important;
+    }
+}
+
+.announcekit-frame-wrapper {
+    @apply md:w-165 #{!important};
+}

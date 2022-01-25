@@ -1,0 +1,69 @@
+//
+// Base styles
+//
+
+.alert {
+    @apply p-6 mb-7 border-t-2 border-solid border-transparent rounded-b relative items-start flex;
+
+    &::before {
+        @apply relative flex-shrink-0 top-0 bottom-0 left-0 w-8 h-8 rounded-full text-center font-semibold text-lg mr-4 font-icon;
+        line-height: 32px;
+    }
+
+    > p {
+        @apply my-1 leading-relaxed text-black-500;
+    }
+
+    a:not([role="button"]) {
+        @apply text-black-500 border-b border-dashed border-black-400;
+    }
+}
+
+.alert-heading {
+    color: inherit;
+}
+
+.alert-link {
+    @apply font-semibold;
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+// .alert-dismissible {
+//     padding-right: ($close-font-size + $alert-padding-x * 2);
+
+//     // Adjust close link position
+//     .close {
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         padding: $alert-padding-y $alert-padding-x;
+//         color: inherit;
+//     }
+// }
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-primary {
+    @include alert-variant("blue", "\f243");
+}
+
+.alert-danger {
+    @include alert-variant("red", "\f235");
+}
+
+.alert-warning {
+    @include alert-variant("yellow", "\f235");
+}
+
+.alert-default {
+    @include alert-variant("black", "\f244");
+}
+
+.alert-success {
+    @include alert-variant("green", "\f243");
+}

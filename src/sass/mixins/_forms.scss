@@ -1,0 +1,25 @@
+@mixin form-control-focus() {
+    &:focus {
+        @apply bg-blue-50 text-black-500 outline-none border-blue-500;
+    }
+}
+
+@mixin form-validation-state($state, $color) {
+    .has-#{$state} {
+        .form-control {
+            @apply border-#{$color}-500 bg-red-50;
+        }
+
+        .help-block {
+            @apply text-#{$color}-500 relative;
+
+            @if $state == "error" {
+                &::before {
+                    content: "\f241";
+                    font-family: $font-family-icon;
+                    @apply mr-2 text-base relative inset-y-0 my-auto;
+                }
+            }
+        }
+    }
+}

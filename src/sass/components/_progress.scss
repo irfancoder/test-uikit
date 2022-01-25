@@ -1,0 +1,32 @@
+.progress {
+    @apply rounded flex h-1 overflow-hidden bg-gray-500 mb-2;
+
+    &-animate {
+        @apply animate-pulse;
+    }
+}
+
+.progress-bar {
+    @apply flex justify-center text-black-500 text-center transition-all duration-200;
+}
+
+.progress-bar-primary,
+.progress-bar-info {
+    @include progress-bar-variant("blue");
+}
+
+.progress-bar-danger {
+    @include progress-bar-variant("red");
+}
+
+.progress-bar-warning {
+    @include progress-bar-variant("yellow");
+}
+
+.progress-bar-default {
+    @include progress-bar-variant("black");
+}
+
+.progress-bar-success {
+    @include progress-bar-variant("green");
+}

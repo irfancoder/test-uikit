@@ -1,0 +1,62 @@
+@mixin button-variant(
+    $color,
+    $border-color,
+    $bg-color,
+    $bg-color-2,
+    $base-color
+) {
+    @apply #{$color} #{$border-color} bg-gradient-to-t from-#{$bg-color} to-#{$bg-color-2};
+
+    &:hover {
+        @apply from-#{$bg-color} to-#{$bg-color};
+    }
+
+    i {
+        @apply text-misc-100 text-lg;
+        line-height: 14px;
+
+        &::before {
+            @apply font-semibold;
+            line-height: 14px;
+        }
+
+        + span {
+            @apply ml-3 align-text-top;
+        }
+    }
+
+    &:disabled {
+        @apply opacity-75 cursor-not-allowed;
+    }
+
+    &:focus {
+        @apply outline-none;
+    }
+
+    &.btn-act {
+        @apply py-2 px-3 rounded bg-transparent text-black-500 font-medium text-base border-0 flex items-center;
+        background-image: unset;
+
+        &:hover,
+        &:focus {
+            @apply bg-#{$base-color}-100 text-#{$base-color}-500;
+
+            i {
+                @apply text-#{$base-color}-500;
+            }
+        }
+    }
+
+    &.btn-link {
+        @apply bg-transparent border-none text-#{$base-color}-500 text-base inline p-3;
+        background-image: unset;
+
+        i {
+            @apply text-#{$base-color}-500;
+        }
+    }
+
+    &.icon-only {
+        @apply w-10 text-center px-0 inline-block;
+    }
+}

@@ -1,0 +1,51 @@
+.switch {
+    @apply relative h-8;
+
+    @include switch-variant("green");
+
+    input {
+        @apply opacity-0 w-0 h-0;
+
+        &:checked {
+            & + .slider {
+                &:before {
+                    @apply -ml-2;
+                }
+            }
+        }
+    }
+
+    .slider {
+        @apply rounded-sm absolute cursor-pointer inset-0 h-full bg-gray-500 transition duration-75 flex items-center;
+
+        &:before {
+            @apply rounded-sm z-10 absolute bg-white text-gray-500 text-sm transition duration-75 w-8 flex items-center justify-center h-4/5 top-0 bottom-0 my-auto left-1;
+            content: "\f21f";
+            font-family: $font-family-icon;
+        }
+
+        > .label {
+            @apply px-2 font-medium;
+
+            &.label-true {
+                @apply text-white;
+            }
+
+            &.label-false {
+                @apply text-black-500;
+            }
+        }
+    }
+
+    &.switch-primary {
+        @include switch-variant("blue");
+    }
+
+    &.switch-danger {
+        @include switch-variant("red");
+    }
+
+    &.switch-warning {
+        @include switch-variant("yellow");
+    }
+}

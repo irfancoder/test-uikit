@@ -1,0 +1,90 @@
+.webapplication-index-page {
+    .table {
+        tbody > tr > td {
+            vertical-align: middle;
+        }
+    }
+
+    .label {
+        .rc {
+            font-size: 8px;
+            color: $white;
+            margin-top: 0;
+        }
+    }
+}
+
+.webapp-header {
+    margin-bottom: 32px;
+
+    @include media-breakpoint-up(md) {
+        display: grid;
+        grid-template-columns: 70px auto auto;
+        align-items: center;
+        grid-gap: 15px;
+    }
+
+    .short-form {
+        background-color: $primary-color;
+        color: $white;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 24px;
+        font-weight: 500;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
+    .webapp-info {
+        .webapp-name {
+            color: $base-color;
+            font-weight: 700;
+            font-size: 24px;
+            margin-top: 0;
+
+            .tag {
+                display: inline-block;
+                vertical-align: middle;
+                font-weight: 500;
+                font-size: 12px;
+                padding: 4px 8px;
+                background-color: $base-color;
+                border-radius: 50px;
+                color: $white;
+            }
+        }
+
+        .webapp-detail {
+            display: grid;
+            grid-gap: 15px;
+
+            @include media-breakpoint-up(md) {
+                grid-template-columns: repeat(3, auto);
+            }
+
+            i {
+                color: $blue-casper;
+                margin-right: 5px;
+            }
+
+            h5 {
+                font-size: 15px;
+                color: rgba($base-color, 0.8);
+                font-weight: 400;
+                margin: 0;
+
+                span {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .webapp-action {
+        justify-self: end;
+    }
+}

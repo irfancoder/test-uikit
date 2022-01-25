@@ -1,0 +1,119 @@
+
+// Container that the modal scrolls within
+.modal {
+    @apply hidden overflow-hidden fixed inset-x-0 bottom-0 outline-none my-0 mx-auto z-2050 top-28 w-11/12 md:w-165 mb-10 xl:w-240;
+
+    &.show {
+        @apply block;
+    }
+
+    // When fading in the modal, animate it to slide down
+    &.fade .modal-dialog {
+        // transform: translate(0, -25%);
+        transition: all 0.3s ease-out;
+    }
+
+    &.in .modal-dialog {
+        // transform: translate(0, -0);
+    }
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+    @apply relative w-auto;
+}
+
+// Actual modal
+.modal-content {
+    @apply p-7 pt-0 relative bg-white border-none rounded outline-none bg-clip-padding;
+    @extend .no-scrollbar;
+}
+
+// Modal background
+.modal-backdrop {
+    @apply fixed #{$default-overlay} inset-0;
+
+    &.fade {
+        @apply opacity-100;
+    }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+    @apply border-b py-4 sticky z-20 bg-white flex top-0;
+}
+
+// Close icon
+.modal-header .close {
+    @apply absolute m-0 text-gray-700 top-3 right-0 text-base h-10 w-10 transition delay-75 outline-none rounded-full;
+
+    i::before {
+        @apply font-bold;
+    }
+
+    &:hover {
+        @apply bg-misc-400;
+    }
+}
+
+// Title text within header
+.modal-title {
+    @apply font-semibold p-0 m-0 text-black-500;
+}
+
+.modal-description {
+    // color: $base-color-800;
+}
+
+.modal-title + .modal-description {
+    @apply mt-1;
+}
+
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.modal-body {
+    @apply py-7 relative overflow-y-scroll;
+    @extend .no-scrollbar;
+
+    > form {
+        @apply pb-0;
+    }
+}
+
+.modal-info {
+    font-weight: 400;
+    // color: $base-color;
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 1.8em;
+    letter-spacing: 0.6px;
+    text-align: justify;
+}
+
+// Footer (for actions)
+.modal-footer {
+    @apply text-right border-t pt-6;
+
+    .btn + .btn {
+        @apply ml-2 mb-0;
+    }
+}
+
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+    @apply absolute overflow-scroll w-12 h-12;
+    top: -9999px;
+}
+
+.modal-open {
+    @apply overflow-hidden;
+
+    .modal {
+        @apply overflow-y-auto overflow-x-hidden;
+    }
+}
+
+.modal-lg {
+    @apply md:w-270;
+}

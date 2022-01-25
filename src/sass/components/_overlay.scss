@@ -1,0 +1,4 @@
+.overlay {
+    @apply fixed #{$default-overlay} inset-0;
+    z-index: -1040;
+}

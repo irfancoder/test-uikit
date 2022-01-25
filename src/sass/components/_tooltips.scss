@@ -1,0 +1,90 @@
+.tooltip {
+    @apply block z-999999 max-w-xs;
+
+    .tooltip-inner {
+        @apply text-white bg-misc-300 py-2 px-3 text-sm shadow text-opacity-90 leading-none;
+        border-radius: 6px;
+        line-height: 14px;
+    }
+
+
+    &.popover.tooltip-bg-white {
+        .popover-inner {
+            @apply bg-white text-base p-0 rounded;
+        }
+    }
+
+    // .tooltip-arrow {
+    //     @apply w-0 h-0 border-solid absolute m-1 border-black-500 z-1;
+    // }
+
+    // &[x-placement^="top"] {
+    //     margin-bottom: 4px;
+
+    //     .tooltip-arrow {
+    //         border-width: 4px 4px 0 4px;
+    //         border-left-color: transparent !important;
+    //         border-right-color: transparent !important;
+    //         border-bottom-color: transparent !important;
+    //         bottom: -4px;
+    //         left: calc(50% - 4px);
+    //         margin-top: 0;
+    //         margin-bottom: 0;
+    //     }
+    // }
+
+    // &[x-placement^="bottom"] {
+    //     margin-top: 4px;
+
+    //     .tooltip-arrow {
+    //         border-width: 0 4px 4px 4px;
+    //         border-left-color: transparent !important;
+    //         border-right-color: transparent !important;
+    //         border-top-color: transparent !important;
+    //         top: -4px;
+    //         left: calc(50% - 4px);
+    //         margin-top: 0;
+    //         margin-bottom: 0;
+    //     }
+    // }
+
+    // &[x-placement^="right"] {
+    //     margin-left: 4px;
+
+    //     .tooltip-arrow {
+    //         border-width: 4px 4px 4px 0;
+    //         border-left-color: transparent !important;
+    //         border-top-color: transparent !important;
+    //         border-bottom-color: transparent !important;
+    //         left: -4px;
+    //         top: calc(50% - 4px);
+    //         margin-left: 0;
+    //         margin-right: 0;
+    //     }
+    // }
+
+    // &[x-placement^="left"] {
+    //     margin-right: 4px;
+
+    //     .tooltip-arrow {
+    //         border-width: 4px 0 4px 4px;
+    //         border-top-color: transparent !important;
+    //         border-right-color: transparent !important;
+    //         border-bottom-color: transparent !important;
+    //         right: -4px;
+    //         top: calc(50% - 4px);
+    //         margin-left: 0;
+    //         margin-right: 0;
+    //     }
+    // }
+
+    &[aria-hidden="true"] {
+        @apply invisible opacity-0;
+        transition: opacity 0.15s, visibility 0.15s;
+    }
+
+    &[aria-hidden="false"] {
+        @apply visible opacity-100;
+        transition: opacity 0.15s;
+    }
+}

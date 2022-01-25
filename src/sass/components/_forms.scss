@@ -1,0 +1,101 @@
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Textual form controls
+//
+
+.form-control {
+    @apply block w-full py-2 px-4 text-base text-black-500 bg-white border border-solid rounded h-10 bg-clip-padding;
+
+    &:not(textarea) {
+        line-height: 40px;
+    }
+
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+        // background-color: transparent;
+        @apply bg-transparent border-0;
+    }
+
+    // Customize the `:focus` state to imitate native WebKit styles.
+    @include form-control-focus();
+
+    // Placeholder
+    &::placeholder {
+        // color: $input-placeholder-color;
+        @apply text-gray-700 text-opacity-100;
+        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    }
+
+    // Disabled and read-only inputs
+    //
+    // HTML5 says that controls under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty, we
+    // don't honor that edge case; we style them as disabled anyway.
+    &:disabled,
+    &[readonly] {
+        @apply bg-gray-300;
+        // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+        opacity: 1;
+    }
+}
+
+textarea {
+    &.form-control {
+        height: unset;
+    }
+}
+
+//
+// Labels
+//
+
+// For use with horizontal and inline forms, when you need the label (or legend)
+// text to align with the form controls.
+.form-label {
+    @apply mb-2 leading-tight font-medium;
+    font-size: inherit; // Override the `<legend>` default
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+.form-group {
+    @apply w-full mb-7;
+
+    .control-label {
+        @apply font-medium mb-3 text-black-500;
+    }
+
+    .form-input-description,
+    .help-block {
+        @apply mt-2 text-gray-700 block;
+    }
+}
+
+.form-group-inline {
+    @apply mb-7;
+
+    @screen md {
+        @apply flex;
+
+        .form-group {
+            @apply mb-0;
+        }
+
+        & > :not(template) + :not(template) {
+            @apply ml-7;
+        }
+    }
+}
+
+// Form validation
+//
+// Provide feedback to users when form field values are valid or invalid. Works
+// primarily for client-side validation via scoped `:invalid` and `:valid`
+// pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
+// server side validation.
+
+// @include form-validation-state("valid", $form-feedback-valid-color);
+@include form-validation-state("error", "red");
